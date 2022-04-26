@@ -2,6 +2,11 @@ import React from "react";
 import styles from "../styles/Global";
 import assets from "../assets";
 
+const openInNewTab = (url) => {
+  const newWindow = window.open(url, "_blank", "noopener,noreferrer");
+  if (newWindow) newWindow.opener = null;
+};
+
 const Download = () => {
   return (
     <div className={`${styles.section} ${styles.bgWhite}`}>
@@ -14,7 +19,14 @@ const Download = () => {
             Get the full source code on GitHub
           </p>
         </div>
-        <button className={styles.btnPrimary}>Source Code</button>
+        <button
+          className={styles.btnPrimary}
+          onClick={() =>
+            openInNewTab("https://github.com/bruceowenga/nefutii-webclient")
+          }
+        >
+          Source Code
+        </button>
         <div className={styles.flexCenter}>
           <img
             src={assets.scene}
